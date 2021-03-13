@@ -1,4 +1,5 @@
 *.terraform
+*.terraform.*
 *.pem
 *.tfvars
 *.tfplan
@@ -7,3 +8,4 @@
 *.lock.info
 .terraform
 .DS_Store
+.terraform.lock.hcl
