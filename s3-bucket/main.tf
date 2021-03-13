@@ -25,18 +25,3 @@ resource "aws_dynamodb_table" "terraform_practice_locks" {
     type = "S"
   }
 }
-
-
-
-#use s3 bucket [done]
-#use the s3 bucket
-#use module for tags
-#tags all the resources 
-#watch the video to understand what he is doing 
-#watch the second video and implement stuffs 
-#send message to victor [done]
-#have a meeting with victor 
-#send whatsapp message to the group [done]
-#create a repo for the project 
-#Finish 1 session of ckad 
-#FInish 2 section of ckad 
