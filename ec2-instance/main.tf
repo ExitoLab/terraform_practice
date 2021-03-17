@@ -2,6 +2,7 @@
 resource "aws_key_pair" "ssh_key" {
   key_name   = "ssh_key"
   public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC8NyvLUwuxWKC1BHOfCi+3YNupLZiOCL1RfRiP1ZSF2GnZdvdKsSkKwE4JCwe47y6QE3BL7LKouvy0P84VkqulVl6x1mSBmhTMg3c2Rngd8A2kQ3zNtTJCRWSfk12yo5ySKynteaKz0xj/AEm5XkMaOml9wagiLg30W0JLBOAqxVsspgRjASnajdCizperQ/CdSoSf3XGpCymlgXvFnBMJN9DNrgCBg16bJ0h1xKF+7iyxgJ1Ygw2C+4FEnVMKnmwmuA28qbxaBmmrRP+5jre/fSDchhtvSHkn8IhiRArICIWhgNF26sVyIOQAkGmvtcwmDX/pXqzIEYuq6vqOIne5nHJORFP2FFyvOpjynt9bj3fzBTwyK+mKXFZqBINmW+RdObs0puyEKLP28harC+xzIfkdKIpGWtKV++DtK1LBTdlxP9kcQhf13PvC2+BSh1+6n7FvTsYY6xhli+7KhAEz0afsPZuGcWvoqSYhrKsDAl7sfNrQgrdxuLgfYOWYAos= toksy@Iges-MacBook-Pro.local"
+  tags       = local.tags
 }
 
 # vpc
@@ -40,9 +41,9 @@ resource "aws_route_table_association" "route_subnet_1" {
 
 # ec2-instance
 resource "aws_instance" "app_server" {
-  ami = data.aws_ami.aws-linux.id
-  instance_type = var.instance_type
-  subnet_id = aws_subnet.subnet_1.id
+  ami                    = data.aws_ami.aws-linux.id
+  instance_type          = var.instance_type
+  subnet_id              = aws_subnet.subnet_1.id
   vpc_security_group_ids = [aws_security_group.sg-instance.id]
   key_name               = var.ssh_key_name
 

@@ -9,8 +9,8 @@ variable "region" {
 }
 
 variable "vpc_cidr" {
-  type        = string
-  default     = "172.16.0.0/16"
+  type    = string
+  default = "172.16.0.0/16"
 }
 
 variable "subnet_cidr_1" {
@@ -21,16 +21,16 @@ variable "subnet_cidr_1" {
 
 variable "instance_type" {
   description = "The instance type"
-  type = string
-  default = "t2.micro"
+  type        = string
+  default     = "t2.micro"
 }
 
 variable "private_key_path" {
   description = "Private key"
-  type = string
+  type        = string
 }
 
 variable "ssh_key_name" {
   description = "ssh key name"
-  type = string
+  type        = string
 }
