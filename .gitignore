@@ -1,11 +1,10 @@
 *.terraform
 *.terraform.*
 *.pem
-*.tfvars
 *.tfplan
 *.tfstate
 *.tfstate.backup
 *.lock.info
 .terraform
 .DS_Store
-.terraform.lock.hcl
+*.terraform.lock.hcl
