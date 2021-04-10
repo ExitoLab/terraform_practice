@@ -9,20 +9,24 @@ module "db" {
   allocated_storage = var.db_allocated_storage
   storage_encrypted = var.db_storage_encrypted
 
+  max_allocated_storage = var.db_max_allocated_storage
+
   name     = var.db_name
   username = var.db_username
   password = var.db_password
   port     = var.db_port
 
-  vpc_security_group_ids = var.db_vpc_security_group_ids
+  # DB subnet group
+  subnet_ids = [module.security_group.this_security_group_id]
+
+  vpc_security_group_ids = module.vpc.database_subnets
 
   maintenance_window = var.db_maintenance_window
   backup_window      = var.db_backup_window
 
-  tags = local.tags
+  multi_az = var.db_multi_az
 
-  # DB subnet group
-  subnet_ids = var.db_subnet_ids
+  tags = local.tags
 
   # DB parameter group
   family = var.db_family
@@ -32,4 +36,40 @@ module "db" {
   final_snapshot_identifier = var.db_final_snapshot_identifier
 
   deletion_protection = var.db_deletion_protection
+
+  enabled_cloudwatch_logs_exports = ["general"]
+
+  backup_retention_period = var.db_backup_retention_period
+  skip_final_snapshot     = var.db_skip_final_snapshot
+
+
+  performance_insights_enabled          = var.db_performance_insights_enabled
+  performance_insights_retention_period = var.db_performance_insights_retention_period
+  create_monitoring_role                = var.db_create_monitoring_role
+  monitoring_interval                   = var.db_monitoring_interval
+
+  parameters = [
+    {
+      name  = "character_set_client"
+      value = "utf8mb4"
+    },
+    {
+      name  = "character_set_server"
+      value = "utf8mb4"
+    }
+  ]
+
+
+  db_instance_tags = {
+    "Sensitive" = "high"
+  }
+  db_option_group_tags = {
+    "Sensitive" = "low"
+  }
+  db_parameter_group_tags = {
+    "Sensitive" = "low"
+  }
+  db_subnet_group_tags = {
+    "Sensitive" = "high"
+  }
 }

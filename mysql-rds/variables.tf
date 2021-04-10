@@ -36,10 +36,18 @@ variable "db_instance_type" {
 }
 variable "db_storage_encrypted" {
   type    = bool
-  default = true
+  default = false
+}
+
+variable "db_multi_az" {
+  type = bool
 }
 
 variable "db_allocated_storage" {
+  type = string
+}
+
+variable "db_max_allocated_storage" {
   type = string
 }
 
@@ -72,6 +80,15 @@ variable "db_backup_window" {
   type = string
 }
 
+variable "db_backup_retention_period" {
+  type = string
+}
+
+variable "db_skip_final_snapshot" {
+  description = "The database can't be deleted when this value is set to true."
+  type        = bool
+}
+
 variable "db_subnet_ids" {
   type    = list(string)
   default = []
@@ -91,8 +108,24 @@ variable "final_snapshot_identifier" {
   default     = null
 }
 
-variable "deletion_protection" {
+variable "db_deletion_protection" {
   description = "The database can't be deleted when this value is set to true."
   type        = bool
   default     = false
+}
+
+variable "db_performance_insights_enabled" {
+  type = bool
+}
+
+variable "db_create_monitoring_role" {
+  type = bool
+}
+
+variable "db_performance_insights_retention_period" {
+  type = string
+}
+
+variable "db_monitoring_interval" {
+  type = string
 }
