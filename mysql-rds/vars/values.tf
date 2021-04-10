@@ -28,3 +28,7 @@ db_performance_insights_enabled          = true
 db_performance_insights_retention_period = 7
 db_create_monitoring_role                = true
 db_monitoring_interval                   = 60
+
+db_multi_az = false
+
+db_final_snapshot_identifier = false
