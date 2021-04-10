@@ -1,6 +1,8 @@
 module "vpc" {
   source = "git::https://github.com/terraform-aws-modules/terraform-aws-vpc.git?ref=v2.78.0"
 
+  name = "vpc-mysql-rds"
+
   cidr = var.vpc_cidr
 
   azs              = ["${var.region}a", "${var.region}b", "${var.region}c"]

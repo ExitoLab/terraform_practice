@@ -1,4 +1,4 @@
-db_identifier = ""
+db_identifier = "test"
 
 db_engine               = "mysql"
 db_engine_version       = "8.0.20"

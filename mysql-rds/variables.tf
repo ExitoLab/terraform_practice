@@ -122,6 +122,10 @@ variable "db_create_monitoring_role" {
   type = bool
 }
 
+variable "db_final_snapshot_identifier" {
+  type = bool
+}
+
 variable "db_performance_insights_retention_period" {
   type = string
 }
