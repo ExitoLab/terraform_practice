@@ -1,3 +1,25 @@
+/*===== General Variables ========= */
+variable "region" {
+  type        = string
+  default     = "us-east-1"
+  description = "The region of the aws account"
+}
+
+/*===== VPC Variables ========= */
+
+variable "vpc_cidr" {
+  type    = string
+  default = "10.99.0.0/18"
+}
+
+variable "subnet_cidr_1" {
+  type        = string
+  description = "Subnet cidr"
+  default     = "172.16.0.0/24"
+}
+
+/*===== DB Variables ========= */
+
 variable "db_identifier" {
   type = string
 }

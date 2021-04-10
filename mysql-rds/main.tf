@@ -1,5 +1,5 @@
 module "db" {
-  source = "https://github.com/terraform-aws-modules/terraform-aws-rds.git?ref=v2.34.0"
+  source = "git::https://github.com/terraform-aws-modules/terraform-aws-rds.git?ref=v2.34.0"
 
   identifier = var.db_identifier
 
@@ -19,7 +19,7 @@ module "db" {
   maintenance_window = var.db_maintenance_window
   backup_window      = var.db_backup_window
 
-  tags       = local.tags
+  tags = local.tags
 
   # DB subnet group
   subnet_ids = var.db_subnet_ids
