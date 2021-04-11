@@ -17,9 +17,9 @@ module "db" {
   port     = var.db_port
 
   # DB subnet group
-  subnet_ids = [module.security_group.this_security_group_id]
 
-  vpc_security_group_ids = module.vpc.database_subnets
+  subnet_ids             = module.vpc.database_subnets
+  vpc_security_group_ids = [module.security_group.this_security_group_id]
 
   maintenance_window = var.db_maintenance_window
   backup_window      = var.db_backup_window
@@ -45,7 +45,7 @@ module "db" {
 
   performance_insights_enabled          = var.db_performance_insights_enabled
   performance_insights_retention_period = var.db_performance_insights_retention_period
-  create_monitoring_role                = var.db_create_monitoring_role
+  create_monitoring_role                = var.db_performance_insights_enabled
   monitoring_interval                   = var.db_monitoring_interval
 
   parameters = [

@@ -15,5 +15,7 @@ module "vpc" {
   tags = local.tags
 }
 
-
 #Use assume roles in place of iam users 
+#Use s3bucket
+#fix the issue with performance_insights_enabled, performance_insights_retention_period
+#create_monitoring_role, monitoring_interval 

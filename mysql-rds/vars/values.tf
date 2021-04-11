@@ -24,10 +24,10 @@ create_db_parameter_group = false
 
 db_skip_final_snapshot = true
 
-db_performance_insights_enabled          = true
-db_performance_insights_retention_period = 7
-db_create_monitoring_role                = true
-db_monitoring_interval                   = 60
+db_performance_insights_enabled          = false
+db_performance_insights_retention_period = 0
+db_create_monitoring_role                = false
+db_monitoring_interval                   = 0
 
 db_multi_az = false
 

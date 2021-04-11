@@ -5,7 +5,6 @@ module "common_labels" {
     "Region"        = "eu-west-1",
     "Department"    = "Technology",
     "Owner"         = "Technology",
-    "Environment"   = "production",
-    "name"          = "rds-mysql"
+    "Environment"   = "production"
   }
 }
