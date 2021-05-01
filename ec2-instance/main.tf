@@ -1,7 +1,7 @@
 #create key pair on aws
 resource "aws_key_pair" "ssh_key" {
   key_name   = "ssh_key"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC8NyvLUwuxWKC1BHOfCi+3YNupLZiOCL1RfRiP1ZSF2GnZdvdKsSkKwE4JCwe47y6QE3BL7LKouvy0P84VkqulVl6x1mSBmhTMg3c2Rngd8A2kQ3zNtTJCRWSfk12yo5ySKynteaKz0xj/AEm5XkMaOml9wagiLg30W0JLBOAqxVsspgRjASnajdCizperQ/CdSoSf3XGpCymlgXvFnBMJN9DNrgCBg16bJ0h1xKF+7iyxgJ1Ygw2C+4FEnVMKnmwmuA28qbxaBmmrRP+5jre/fSDchhtvSHkn8IhiRArICIWhgNF26sVyIOQAkGmvtcwmDX/pXqzIEYuq6vqOIne5nHJORFP2FFyvOpjynt9bj3fzBTwyK+mKXFZqBINmW+RdObs0puyEKLP28harC+xzIfkdKIpGWtKV++DtK1LBTdlxP9kcQhf13PvC2+BSh1+6n7FvTsYY6xhli+7KhAEz0afsPZuGcWvoqSYhrKsDAl7sfNrQgrdxuLgfYOWYAos= toksy@Iges-MacBook-Pro.local"
+  public_key = "${var.public_key}"
   tags       = local.tags
 }
 
@@ -53,5 +53,6 @@ resource "aws_instance" "app_server" {
     user        = "ec2-user"
     private_key = file(var.private_key_path)
   }
-}
 
+  tags       = local.tags
+}
