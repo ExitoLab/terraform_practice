@@ -1,7 +1,7 @@
 #create key pair on aws
 resource "aws_key_pair" "ssh_key" {
   key_name   = "ssh_key"
-  public_key = "${var.public_key}"
+  public_key = var.public_key
   tags       = local.tags
 }
 
