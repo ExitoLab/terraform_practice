@@ -3,7 +3,7 @@ resource "aws_s3_bucket" "terraform_pratice" {
   acl           = "private"
 
   versioning {
-    enabled = true
+    enabled = false
   }
 
   tags = {
